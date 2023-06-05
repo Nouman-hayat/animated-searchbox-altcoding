@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Search Box </title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="search-box-wrapper">
+      <input type="text" placeholder="Type to search..">
+      <div class="search-btn">
+        <i class="fas fa-search"></i>
+      </div>
+<div class="cancel-btn">
+        <i class="fas fa-times"></i>
+      </div>
+<div class="searchdata">
+</div>
+</div>
+<script>
+      const searchBox = document.querySelector(".search-box-wrapper");
+       const searchInput = document.querySelector("input");
+      const searchData = document.querySelector(".searchdata");
+      const searchBtn = document.querySelector(".search-btn");
+      const cancelBtn = document.querySelector(".cancel-btn");
+     
+      searchBtn.onclick =()=>{
+         searchInput.classList.add("active");
+        cancelBtn.classList.add("active");
+        searchBox.classList.add("active");
+        searchBtn.classList.add("active");
+       
+        searchInput.focus();
+        if(searchInput.value != ""){
+          var values = searchInput.value;
+          searchData.classList.remove("active");
+          searchData.innerHTML = "You just typed " + "<span style='font-weight: 500;'>" + values + "</span>";
+        }else{
+          searchData.textContent = "";
+        }
+      }
+      cancelBtn.onclick =()=>{
+        
+        searchInput.classList.remove("active");
+        cancelBtn.classList.remove("active");
+        searchData.classList.toggle("active");
+        searchBox.classList.remove("active");
+        searchBtn.classList.remove("active");
+        searchInput.value = "";
+      }
+    </script>
+
+  </body>
+</html>
